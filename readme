@@ -1,1 +1,68 @@
-TEST
+Java Version Used -11
+Maven 3.8.8
+
+Run and Build app using 
+mvn -build 
+
+Packaging Created as Jar - CurrencyExchange-v1.jar 
+
+Once APplication Build and running 
+Use below URL to load Swagger 
+
+   http://localhost:9090/swagger-ui/index.html#/
+
+Credentials used : UserName: admin
+                   Password : admin
+
+Authentication method used : JWT Auth 
+
+API KEy : 8e5f00f38c25456c9791198099c301d9
+
+OPen Bill Controller 
+http://localhost:9090/swagger-ui/index.html#/bill-controller/calculate
+
+
+
+In Request Body use request data 
+Eg: 
+Request : 
+{
+            "items": [
+                {"name": "Laptop", "category": "electronics", "price": 1000},
+                {"name": "Headphones", "category": "electronics", "price": 150}
+            ],
+            "totalAmount": 1150,
+            "userType": "affiliate",
+            "customerTenure": 3,
+            "originalCurrency": "USD",
+            "targetCurrency": "EUR",
+            "isEmployee": true,
+            "isAffiliate": false
+          }
+
+
+Response : 
+{
+   957.1196875
+}
+
+
+OR If you are using POstman then use CURL as below: 
+
+curl -X 'POST' \
+  'http://localhost:9090/api/calculate' \
+  -H 'accept: */*' \
+  -H 'Content-Type: application/json' \
+  -d '{
+            "items": [
+                {"name": "Laptop", "category": "electronics", "price": 1000},
+                {"name": "Headphones", "category": "electronics", "price": 150}
+            ],
+            "totalAmount": 1150,
+            "userType": "affiliate",
+            "customerTenure": 3,
+            "originalCurrency": "USD",
+            "targetCurrency": "EUR",
+            "isEmployee": true,
+            "isAffiliate": false
+          }' 
